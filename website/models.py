@@ -1,12 +1,13 @@
 from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+
 # this file is deciding the form of our database
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     data = db.Column(db.String(10000))
-    date= db.Column(db.DateTime(timezone=True),default=func.now) #current date and time
+    date= db.Column(db.DateTime(timezone=True),default=func.now()) #current date and time
     user_id= db.Column(db.Integer, db.ForeignKey('user.id')) 
 
 class User(db.Model, UserMixin):

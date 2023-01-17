@@ -3,5 +3,26 @@ you are simply changing small parts of the html in base instead of making multpl
 
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
-<h1>this is the homepage</h1>
+<h1 align="center">Notes</h1>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes%}
+  <li class="list-group-item">
+    {{note.data}}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+
+  {%endfor%}
+</ul>
+<form method="POST">
+  <textarea name="note" id="note" class="form-control"></textarea>
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Note</button>
+    <!-- When you make a submit button it sends what ever 
+        form method you have to the site's domain.
+    In this case the form is a POST soin your code you have to
+     catch this post and manipulate the data how you want. -->
+  </div>
+</form>
 {% endblock %}

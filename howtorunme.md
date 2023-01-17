@@ -11,3 +11,7 @@ how do I look at db files
 
 https://www.youtube.com/watch?v=dam0GPOAvVI
 at minute 1:33:44
+
+side notes:
+{% if boolean == False%} True beans {{user+"s"}}{%else%} Not true beans
+  {{text}}{%endif%} {% endblock %}
